@@ -1,3 +1,40 @@
+
+    var nextra = document.getElementById('next');
+    var favoriter = document.getElementById('favouriteTag')
+
+    function duality(){
+        // nextfunc();
+        favfunc();
+    }
+
+    // nextfunc works fine
+    function nextfunc(){
+        // document.getElementById('next').click();
+        location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+    }
+ //favfunc works fine
+    function favfunc(){
+        //next is dominant
+        // document.getElementById('favouriteTag').click();
+        // document.getElementById('next').click();
+        location.href = "{% url 'accounts:favorite_pet' data.id %}"
+
+    }
+
+    function duality2(){
+        // document.getElementById('favouriteTag').click()
+        // // if ( a == 1) {
+        // //
+        // //     location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+        // // }
+
+        // next is always dominant
+        location.href = "{% url 'accounts:favorite_pet' data.id %}"
+        // location.href = "/user/swiper/?page={{ page_obj.next_page_number}}"
+        location.href = "https://www.google.com/search?client=safari&rls=en&q=javascript+dating+site&ie=UTF-8&oe=UTF-8"
+
+    }
+
 (function($) {
 
 	"use strict";

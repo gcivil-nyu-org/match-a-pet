@@ -35,15 +35,27 @@
 <body1>
     <header>
         <div class="logo">
-
+<a href="{% url 'accounts:accounts-home' %}">
             <h1 class="logo-text"><span>Match </span>A Pet</h1>
+    </a>
         </div>
 
         <ul class="nav">
             {% if user.is_authenticated %}
-                <li><a href="/">Home</a></li>
-                <li><a href="/view_pets">Pets</a></li>
-                <li><a href="/maps/shelters">Shelters</a></li>
+
+            <li><a href="{% url 'accounts:swiper' %}">Swipe A Pet</a></li>
+            <li>
+                        <a href="#">
+                            Browse <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+
+                        </a>
+                        <ul>
+                            <li><a href="/view_pets">Pets</a></li>
+                            <li><a href="/profiles">Shelters & Users</a></li>
+                        </ul>
+            </li>
+                <li><a href="/maps/shelters">Shelter Map</a></li>
+            <li>
                 {% if user.is_shelter %}
                 <li>
                     <a href="/inbox">
@@ -62,12 +74,14 @@
                             <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
                         </a>
                         <ul>
-                            <li><a href="/shelter/profile">My Profile</a></li>
+                            <li><a href="/shelter/profile">Edit My Profile</a></li>
+                            <li><a href="/profile/{{user.username}}">Preview Profile</a></li>
                             <li><a href="/pets/register">Register a Pet</a></li>
                             <li><a href="/logout" class="logout">Logout</a></li>
                         </ul>
                     </li>
                 {% elif user.is_clientuser %}
+                    <li><a href="/playdates">Playdates</a></li>
                     <li>
                             <a href="/inbox">
                             {% if directs_count %}
@@ -84,27 +98,41 @@
                             <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
                         </a>
                         <ul>
-                            <li><a href="/user/profile">My Profile</a></li>
+                            <li><a href="/user/profile">Edit My Profile</a></li>
+                            <li><a href="/profile/{{user.username}}">Preview Profile</a></li>
                             <li><a href="/user/favorites">My Favorites</a></li>
                             <li><a href="/user/petregister">Register my Pet</a></li>
-                            <li><a href="/user/mypets">My Pets</a></li>
                             <li><a href="/logout" class="logout">Logout</a></li>
                         </ul>
                     </li>
                 {% endif %}
             {% else %}
-            <li><a href="/">Home</a></li>
-            <li><a href="/view_pets">Pets</a></li>
-            <li><a href="/maps/shelters">Shelters</a></li>
-            <li><a href="/login">Login</a>
+            <li><a href="/login">Swipe A Pet</a></li>
+            <li>
+            <li>
+                        <a href="#">
+                            Browse <i class="fas fa-chevron-down" style="font-size: .8em;"></i>
+                        </a>
+                        <ul>
+                            <li><a href="/view_pets">Pets</a></li>
+                            <li><a href="/profiles">Shelters & Users</a></li>
+                        </ul>
             </li>
-            <li><a href="#">Register</a>
-              <ul>
-                  <li><a href="/user/register">User Register</a></li>
-                  <li><a href="/shelter/register/">Shelter Register</a></li>
-              </ul>
-          </li>
-            <!-- <li><a href="/register/shelter">Sign Up</a></li> -->
+                <li><a href="/maps/shelters">Shelter Map</a></li>
+
+            <li>
+                <a href="/login">
+                           <i class="fas fa-user"></i>
+                </a>
+<!--                <ul>-->
+<!--                <li><a href="/login">Login</a>-->
+<!--                </li>-->
+<!--                <li><a href="/user/register">User Register</a></li>-->
+<!--                <li><a href="/shelter/register/">Shelter Register</a></li>-->
+<!--                </ul>-->
+            </li>
+                </ul>
+            </li>
             {% endif %}
         </ul>
     </header>
@@ -112,21 +140,20 @@
 {% block body %}
 {% endblock %}
 
-<section class="ftco-intro ftco-section ftco-no-pb">
- <div class="container">
-  <div class="row justify-content-center">
-   <div class="col-md-12 text-center">
-    <div class="footerimg"  style="background-image: url(../../static/accounts/images/animal_images/catheader.jpg);">
-     <div class="overlay"></div>
-     <h2>A Social Media Platform to help get shelter animals find loving homes </h2>
-     <p>We can manage your dream building A small river named Duden flows by their place</p>
+<!--<section class="ftco-intro ftco-section ftco-no-pb">-->
+<!-- <div class="container">-->
+<!--  <div class="row justify-content-center">-->
+<!--   <div class="col-md-12 text-center">-->
+<!--    <div class="footerimg"  style="background-image: url(../../static/accounts/images/animal_images/catheader.jpg);">-->
+<!--     <div class="overlay"></div>-->
+<!--     <h2>A Social Media Platform to help get shelter animals find loving homes </h2>-->
 
-     <p class="mb-0"><a href="/view_pets/" class="btn btn-primary px-4 py-3">Adopt Now</a></p>
-   </div>
- </div>
-</div>
-</div>
-</section>
+<!--     <p class="mb-0"><a href="/view_pets/" class="btn btn-primary px-4 py-3">Find a Pet to Adopt!</a></p>-->
+<!--   </div>-->
+<!-- </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</section>-->
 
 <footer class="ftco-footer ftco-no-pt">
   <div class="container">
@@ -146,12 +173,12 @@
 
     <div class="col-md pt-5">
       <div class="ftco-footer-widget pt-md-5 mb-4">
-       <h2 class="ftco-heading-2">Have a Questions?</h2>
+       <h2 class="ftco-heading-2">Have a Question?</h2>
        <div class="block-23 mb-3">
          <ul>
            <!-- <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li> -->
-           <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">dev@matchapet.org</span></a></li>
+           <li><span class="icon fa fa-paper-plane"></span><span class="text">dev@matchapet.org</span></li>
          </ul>
        </div>
      </div>
@@ -172,8 +199,6 @@
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
 <script src="../../static/accounts/js/jquery.min.js"></script>
 <script src="../../static/accounts/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="../../static/accounts/js/popper.min.js"></script>
@@ -189,6 +214,6 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 <script src="../../static/accounts/js/main.js"></script>
 <script src="../../static/accounts/js/flickity-docs.min.js"></script>
-
+<script src="../../static/accounts/js/search.js"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
     zoom: 9.5
     });
     
-    {% for shelterCoord in user %} // loop through all users
+    {% for shelterCoord in user1 %} // loop through all users
     var marker = new mapboxgl.Marker()
             .setLngLat([{{shelterCoord.longitude}}0 , {{shelterCoord.latitude}}0])
             .addTo(map);

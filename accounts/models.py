@@ -19,6 +19,7 @@ class User(AbstractUser):
     zip_code = models.CharField(max_length=5, blank=True)
     latitude = models.CharField(max_length=20, blank=True)
     longitude = models.CharField(max_length=20, blank=True)
+    about = models.CharField(max_length=1000, blank=True)
 
 
 # ShelterRegisterData has fields pet, shelter_profile_image, user, user_id
@@ -77,6 +78,11 @@ class Pet(models.Model):
     pet_age = models.CharField(max_length=10)
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
+    pet_adoption_status = models.BooleanField("Is Adopted", default=False)
+    pet_pending_status = models.BooleanField("Is Adoption pending", default=False)
+    pet_pending_user = models.ManyToManyField(
+        User, related_name="Pending_User", blank=True
+    )
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )

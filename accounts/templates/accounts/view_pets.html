@@ -46,7 +46,6 @@
 
               {{ filter.form }}
               <button type="submit" class="btn" style="margin-left: 50px; background-color: #103e39; color: white;">Filter</button>
-              <button type="submit" class="btn" style="margin-left: 50px; background-color: #103e39; color: white;">PlayDate</button>
             </div>
           </form>
         </div>
@@ -91,14 +90,16 @@
                             <p>Age: {{pets.pet_age}}</p>
                             <p>Sex: {{pets.pet_gender}}</p>
                             <p>Color: {{pets.pet_color}}</p>
-                            <p>Shelter:<a href=" /../profile/{{ pets.shelterRegisterData }}">{{pets.shelterRegisterData}}</a></p>
-                            <ul class="ftco-social text-center">
-                                <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
-
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
+                            <p>Shelter:<a href=" /../profile/{{ pets.shelterRegisterData }}"> {{pets.shelterRegisterData}}</a></p>
                         </div>
+                        <ul class="ftco-social text-center">
+                            {% if user.is_authenticated %}
+                            <b><li class="ftco-animate"><a href="/send/new/{{ pets.shelterRegisterData }}">Inquire More! <i class="fas fa-paper-plane"></i></li></b>
+                            {% else %}
+                            <b><li class="ftco-animate"><a href="/login">Inquire More! <i class="fas fa-paper-plane"></i></li></b>
+                            {% endif %}
+                            </ul>
+
                     </div>
                 </div>
             </div>

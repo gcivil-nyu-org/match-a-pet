@@ -11,9 +11,10 @@
   <h1 class="title is-2">
   Messages
   </h1>
-  <a href="{% url 'accounts:newconversation' user.username %}" class="button is-success">New message</a>
+  <a href="/profiles" class="button is-success">New message</a>
 
 <ul style="overflow-y: scroll; height: 500px" class="menu-list">
+
 
 {% for message in messages %}
 
@@ -87,19 +88,13 @@ var objDiv = document.getElementById("botscroll");
 objDiv.scrollTop = objDiv.scrollHeight;
 </script>
 
-
+{% if directs %}
 <!--Send message box  -->
 <form role="form" method="POST", action="{% url 'accounts:send_direct' %}">
   {% csrf_token %}
 <article class="media">
 <figure class="media-left">
-<!--  <p class="image is-64x64">-->
-<!--    {% if user.is_clientuser %}-->
-<!--    <img src="{{user.sprofile.shelter_profile_image.url}}">-->
-<!--    {% elif user.is_shelter %}-->
-<!--    <img src="{{user.uprofile.user_profile_image.url}}">-->
-<!--    {% endif %}-->
-<!--  </p>-->
+
 </figure>
 <div class="media-content">
   <input type="hidden" name="to_user" value="{{ active_direct }}">
@@ -118,6 +113,7 @@ objDiv.scrollTop = objDiv.scrollHeight;
 </div>
 </article>
 </form>
+{% endif %}
 </div>
 
 

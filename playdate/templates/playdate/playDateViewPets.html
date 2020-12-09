@@ -1,0 +1,113 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
+<section class="hero-wrap hero-wrap-2">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+<!--					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Pets<i class="fa fa-chevron-right"></i></span></p>-->
+					<h1 class="mb-0 bread">Pets Available For Play Dates</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+
+<section class="ftco-section bg-light">
+
+  <div class="container">
+    <div class="row">
+
+        <div class="sidebar-box ftco-animate" style="background-color: teal; border-radius: 25px; color: aliceblue;">
+            {% load crispy_forms_tags %}
+            <form method="GET" class="search-form">
+            <div class="form-group">
+
+              {{ filter.form }}
+              <button type="submit" class="btn" style="margin-left: 50px; background-color: #103e39; color: white;">Filter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+<!--      <h3 class="heading-sidebar" style="text-align:center"><b>Pets Available for Adoption</b></h3>-->
+
+    <!-- <div class="container"> -->
+
+
+       <div class="row">
+        {% if filter.qs %}
+        {% for pets in filter.qs %}
+            <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
+                <div class="staff">
+                    <a href=" /profile/{{ pets.userRegisterData.user }}">
+                    <div class="img-wrap d-flex align-items-stretch">
+
+                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_profile_image1.url}}); height: 250px; width: 250px"></div>
+                    </div></a>
+                    <div class="text pt-3">
+                        <h3>{{pets.pet_name}}</a></h3>
+                        <span class="position mb-2">{{pets.pet_breed}}</span>
+                        <div class="faded">
+                            <p>Age: {{pets.pet_age}}</p>
+                            <p>Sex: {{pets.pet_gender}}</p>
+                            <p>Spay/Neuter: {{pets.pet_spayneuter}}</p>
+                            <p>City: {{pets.userRegisterData.user.city}}</p>
+                            <p>Playdate Day: {{pets.pet_playdate_day1}}</p>
+                            <p>Playdate Time: {{pets.pet_playdate_time1}}</p>
+                            <p>Owner: {{pets.userRegisterData.user}}</p>
+<!--                            <a href=" /../userprofile/{{ pets.userRegisterData.user }}">SCHEDULE PLAYDATE</a></p>-->
+                            <ul class="ftco-social text-center">
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+
+
+                    </ul>
+                </div>
+                        <ul class="ftco-social text-center">
+                            {% if user.is_authenticated %}
+                            <b><li class="ftco-animate"><a href="/send/new/{{ pets.userRegisterData.user }}">Schedule A Playdate! <i class="fas fa-paper-plane"></i></li></b>
+                            {% else %}
+                            <b><li class="ftco-animate"><a href="/login">Schedule A Playdate! <i class="fas fa-paper-plane"></i></li></b>
+                            {% endif %}
+                            </ul>
+            </div>
+        </div>
+        </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-md-6 d-flex align-items-stretch ftco-animate">
+            {% if is_paginated %}
+            <div class="project-wrap">
+                <div class="block-27">
+                    <ul class="d-flex justify-content-between">
+                        {% if page_obj.has_previous %}
+                        <li><a href="/playdates?page={{ page_obj.previous_page_number }}">&lt;</a></li>
+                        {% endif %}
+                        <li class="advisor">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
+                        {% if page_obj.has_next %}
+                        <li><a href="/playdates?page={{ page_obj.next_page_number }}">&gt;</a></li>
+                        {% endif %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+
+</section>
+
+
+{% endblock %}

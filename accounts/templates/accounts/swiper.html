@@ -1,0 +1,180 @@
+{% extends 'accounts/base.html' %}
+
+  {% block body %}
+
+<script>
+    console.log("This is the swiper")
+    function loginPrompt(){
+        // console.log("Please login")
+        alert("Please login to add pet to your favourite's list!")
+    }
+</script>
+
+
+<section class="hero-wrap hero-wrap-2">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+<!--					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Pets<i class="fa fa-chevron-right"></i></span></p>-->
+					<h1 class="mb-0 bread">Swipe A Pet!</h1>
+                    <p style="color: #1c2a38">Click on the <i class="fas fa-heart"> to add to your favorites</i></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!--Swiper card section-->
+  <div class="container">
+      <div>
+          <div id="demo" class="carousel slide my-3" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row1">
+                {% if pet_list %}
+                {% for data in pet_list %}
+                 <div class="  mx-auto" >
+                   <div class="card bg-info" style="width: 30rem;">
+
+                   <!--Load pet pic and link to pet profile on click-->
+                       <a href="/../pets/{{ data.id }}">
+                     <img src="{{data.pet_image_url}}" class="card-img-top" alt="...">
+                           </a>
+                     <div class="card-body">
+                         <h5 class="card-title font-weight-light text-dark">
+                             <!-- Load pet name and link to pet profile on click-->
+                             <a href="/../pets/{{ data.id }}" class="text-capitalize text-uppercase font-weight-bold text-dark">
+                                 <h1><font face="Poppins" size ="+3" style="font-weight: 600;color: #1d2b39">{{data.pet_name}}</font></h1>
+                            </a>
+                        </h5>
+                      <p class="card-text text-white">
+                        <h5>
+                        <font face="Poppins" size ="+1" style="color: #1d2b39">
+                            Breed: {{ data.pet_breed }}
+                        Age: {{data.pet_age}}
+                        <br>
+                        Sex: {{data.pet_gender}}
+                        <br>
+                        Color: {{data.pet_color}}
+                        <br>
+                        Shelter: <a href="/../profile/{{ data.shelterRegisterData }}">{{data.shelterRegisterData}}</a>
+                            </font>
+                        </h5>
+                    </p>
+
+<!--                         Load Shelter name and link to it on click-->
+<!--                        <p>-->
+<!--                            <a href="/../profile/{{ data.shelterRegisterData }}">-->
+<!--                            <font face = "Poppins" size ="+1" style="color: #1d2b39">-->
+<!--                                Shelter: {{data.shelterRegisterData}}-->
+<!--                            </font>-->
+<!--                            </a>-->
+<!--                        </p>-->
+
+<!--                         Add to favourites button-->
+                         {% if user.is_authenticated %}
+  <!--                      <a href="/../pets/{{ data.id }}" class="btn btn-primary">View Pet Details</a>-->
+ <!--                      <a href="/../profile/{{ data.shelterRegisterData }}" class="btn btn-primary">View Pet's Shelter Details</a>-->
+
+                         <!-- The anchor tag below will add to favourites   -->
+                         <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">
+                           <font face = "Poppins" size ="+1" style="color: #1d2b39">
+                               <button id="addToFav2" class="btn btn-primary" >Add to Favorites <i class="fas fa-heart"></i>
+                               </button>
+
+                           </font>
+                         </a>
+<!--                         favourite overides-->
+<!--                         <a id="favouriteTag" href="{% url 'accounts:favorite_pet' data.id %}">-->
+<!--&lt;!&ndash;                             next is dominant&ndash;&gt;-->
+<!--                         <button id="addToFav2" class="btn btn-primary" onclick="nextfunc()" >Add to Favourites-->
+<!--                               </button>-->
+<!--&lt;!&ndash;                             <span onclick="nextfunc()"></span>&ndash;&gt;-->
+<!--                             </a>-->
+<!--                         next overrides-->
+
+<!--                         So basically, the link in the anchor command dominates-->
+<!--                         <a id="favouriteTag" href="/user/swiper/?page={{ page_obj.next_page_number}}">-->
+<!--&lt;!&ndash;                             next is dominant&ndash;&gt;-->
+<!--                         <button id="addToFav2" class="btn btn-primary" onclick="favfunc()" >Add to Favourites-->
+<!--                               </button>-->
+<!--&lt;!&ndash;                             <span onclick="nextfunc()"></span>&ndash;&gt;-->
+<!--                             </a>-->
+<!--                         <button id="nextra2" class="btn btn-primary" onclick="duality2()">Nextra-->
+<!--                               </button>-->
+                         {% else %}
+                         <button id="addToFavNoLogin" onclick="loginPrompt()"> Add to Favorites </button>
+                         {% endif %}
+
+                    </div>
+                  </div>
+                 </div>
+                 {% endfor %}
+               </div>
+             </div>
+
+              {% endif %}
+            </div>
+             </div>
+            </div>
+           </div>
+         </div>
+       </div>
+<script>
+        function doSomething(){
+          $("#addToFav2").click()}
+        </script>
+
+     {% if is_paginated %}
+     {% if page_obj.has_next %}
+     <a class="carousel-control-prev " href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="prev">
+         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+         <span class="sr-only">Previous</span>
+         <button class="btn btn-primary"><i class="fas fa-times fa-4x"></i></button>
+
+       </a>
+
+        {% endif %}
+{% if user.is_authenticated %}
+       {% if pet_list %}
+       {% for data in pet_list %}
+<!--<a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">-->
+<!--&lt;!&ndash;<a class="carousel-control-next" href="{% url 'accounts:favorite_pet' data.id %}" role="button" data-slide="next" onclick="window.open('/user/swiper/?page={{ page_obj.next_page_number}}'); return true;">&ndash;&gt;-->
+<!--&lt;!&ndash;<a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="'{% url 'accounts:favorite_pet' data.id %}'>&ndash;&gt;-->
+<!--&lt;!&ndash;    <a class="carousel-control-next" href='/user/swiper/?page={{ page_obj.next_page_number}}' role="button" data-slide="next" onclick="window.open('{% url 'accounts:favorite_pet' data.id %}'); return true;"> &ndash;&gt;-->
+<!--&lt;!&ndash;           <a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;         <span class="carousel-control-next-icon" aria-hidden="false"></span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;         <span class="sr-only">Next</span>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;           <button onclick="favfunc()"> Show me more like this! </button>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;           <button  id="swipeNextt" onclick="/user/swiper/?page={{ page_obj.next_page_number}}" data-slide="next">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;       </a>&ndash;&gt;-->
+<!--<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>-->
+<!--  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>-->
+
+
+<!--        <button  onclick="doSomething()" data-slide="next">I like this one! Show me more</button></a>-->
+
+<a id="next" class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="doSomething()">
+        <button onclick="getElementById('addToFav2').click()" class="btn btn-primary">  <i class="fas fa-heart fa-4x"></i></button></a>
+
+
+      {% endfor %}
+      {% endif %}
+        {% else %}
+{% if pet_list %}
+       {% for data in pet_list %}
+       <a class="carousel-control-next" href="/user/swiper/?page={{ page_obj.next_page_number}}" role="button" data-slide="next" onclick="loginPrompt()">
+         <span class="carousel-control-next-icon" aria-hidden="true"></span>
+         <span class="sr-only">Next</span>
+       </a>
+
+      {% endfor %}
+      {% endif %}
+{% endif %}
+
+       {% endif %}
+
+
+  </div>
+
+{% endblock %}

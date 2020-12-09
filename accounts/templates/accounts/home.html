@@ -2,38 +2,48 @@
 
 {% block body %}
 
- <section>
 
-  <div class="carousel"
+<!-- <section class="searchcontainer">-->
+
+<!--  <div class="carousel"-->
+<!--  data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,-->
+<!--"pauseAutoPlayOnHover": true }'>-->
+
+<!--  <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />-->
+<!--  <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />-->
+<!--  <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />-->
+<!--  <img src="https://i.ibb.co/10Gjjb2/small.jpg" alt="small"/>-->
+<!--  <img src="https://i.ibb.co/ZLC6H1D/tequila2.jpg" alt="tequila2" />-->
+<!--  <img src="https://i.ibb.co/b5GH75R/tequila3.jpg" alt="tequila3" />-->
+
+<!--</div>-->
+
+<!-- </section>-->
+
+<section class="searchcontainer">
+    <section>
+      <div class="carousel"
   data-flickity='{"freeScroll": true, "wrapAround": true, "imagesLoaded": true, "percentPosition": false, "autoPlay": 3000,
 "pauseAutoPlayOnHover": true }'>
+
   <img src="https://i.ibb.co/0r9b18n/p.jpg" alt="p" />
   <img src="https://i.ibb.co/SN4bBp5/cats.jpg" alt="cats" />
   <img src="https://i.ibb.co/RHbKFBw/tequila1.jpg" alt="tequila1" />
   <img src="https://i.ibb.co/10Gjjb2/small.jpg" alt="small"/>
   <img src="https://i.ibb.co/ZLC6H1D/tequila2.jpg" alt="tequila2" />
   <img src="https://i.ibb.co/b5GH75R/tequila3.jpg" alt="tequila3" />
-
-</div>
-
- </section>
-
-
-<section class="ftco-section testimony-section bg-light">
-  <!-- <div class="overlay" style="background-image: url(images/bg_2.jpg);"></div> -->
-  <div class="container">
-   <div class="row pb-4">
-     <div class="col-md-7 heading-section ftco-animate">
-      <!-- <span class="subheading">About Us</span> -->
-      <h2 class="mb-4">Saving lives. Enriching yours.</h2>
-    </div>
-  </div>
- </div>
+          </div>
+    </section>
+<section class="ftco-section ftco-counter img">
+    <div class="wrapper1">
+       <h1 class="text-center"><b>Adopt A Pet Today!</b></h1>
+        <br>
+        <span><a href="/view_pets"><i class="fas fa-paw fa-7x">&nbsp;</i></a> <a href="/profiles"><i class="fas fa-users fa-7x">&nbsp;</i></a><a href="/register"><i class="fas fa-user-circle fa-7x"></i></a></span>
+       <br>
+    <span><a href="/view_pets">&nbsp;&nbsp;Search a Pet</a><a href="/profiles">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Search A Shelter/User</a><a href="/register">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sign Up</a></span>
+   </div>
 </section>
-
-<p class="mb-0" style="text-align: center;"><a href="/profiles/" class="btn btn-primary px-4 py-3">Discover Profiles</a></p>
-
-<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(../../static/accounts/images/animal_images/shelter.jpg);">
+    <section class="ftco-section ftco-counter img" id="section-counter";>
  <div class="overlay"></div>
  <div class="container">
   <div class="row">
@@ -41,7 +51,7 @@
      <div class="block-18 d-flex align-items-center">
       <div class="icon"><span class="flaticon-animal"></span></div>
       <div class="text">
-       <strong class="number" data-number="40">0</strong>
+       <strong class="number" data-number="{{adopted}}">0</strong>
        <span>Animals adopted</span>
      </div>
    </div>
@@ -50,7 +60,7 @@
    <div class="block-18 d-flex align-items-center">
     <div class="icon"><span class="flaticon-animal-shelter"></span></div>
     <div class="text">
-     <strong class="number" data-number="28">0</strong>
+     <strong class="number" data-number="{{shelters}}">0</strong>
      <span>Shelters</span>
    </div>
  </div>
@@ -59,7 +69,7 @@
  <div class="block-18 d-flex align-items-center">
   <div class="icon"><span class="flaticon-pets"></span></div>
   <div class="text">
-   <strong class="number" data-number="1200">0</strong>
+   <strong class="number" data-number="{{pets}}">0</strong>
    <span>Pet Listings</span>
  </div>
 </div>
@@ -68,14 +78,42 @@
  <div class="block-18 d-flex align-items-center">
   <div class="icon"><span class="flaticon-user-profile"></span></div>
   <div class="text">
-   <strong class="number" data-number="783">0</strong>
+   <strong class="number" data-number="{{users}}">0</strong>
    <span>Users</span>
  </div>
 </div>
 </div>
 </div>
 </div>
+
+    </section>
+</div>
 </section>
+
+
+       <!--    <div class="search_box">-->
+<!--        <div class="dropdown1">-->
+<!--            <div class="default_option">Pets</div>-->
+<!--            <ul>-->
+<!--                <li>Pets</li>-->
+<!--              <li>Shelters & Users</li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        <form method="GET" action="{% url 'accounts:view-pets' %}" class="search-form">-->
+<!--        <div class="search_field">-->
+<!--          <input type="text" class="input" placeholder="Search a pet by breed!">-->
+<!--            <span><button type="submit"><i class="fas fa-search"></i></button></span>-->
+<!--      </div>-->
+<!--        </form>-->
+<!--    </div>-->
+
+
+
+
+
+<!--<p class="mb-0" style="text-align: center;"><a href="/profiles/" class="btn btn-primary px-4 py-3">Discover Profiles</a></p>-->
+
+
 
 
 {% endblock %}

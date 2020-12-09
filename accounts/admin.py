@@ -54,6 +54,8 @@ class PetViewAdmin(ImportExportModelAdmin):
         "pet_age",
         "pet_color",
         "pet_gender",
+        "pet_adoption_status",
+        "pet_pending_status",
         "pet_profile_image1",
         "shelterRegisterData_id",
     )

@@ -1,36 +1,91 @@
 {% extends 'accounts/base.html' %}
 
 {% block body %}
-
 {% load crispy_forms_tags %}
-  <!-- Shelter Registration: Math-A-Pet -->
-  <div class="content-section" style="max-width: 500px; margin-left: 50px;">
-      <form method="POST">
-          {% csrf_token %}
-          <fieldset class="form-group">
-              <legend class="border-bottom mb-4">Registration Form</legend>
-              {{ form|crispy }}
-          </fieldset>
-          <div class="form-group">
-              <button class="btn btn-outline-info" type="submit">Register</button>
-          </div>
-      </form>
-
-      <div class="border-top pt-3">
-          <small class="text-muted">
-              Already have an account? <a class="ml-2" href="/">Login</a>
-          </small>
-      </div>
-
-  </div>
-
 {% if messages %}
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
+  {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+      </div>
+  {% endfor %}
 {% endif %}
+<section class="container2">
+<div class="container">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 b-height">
+            <div class="row b-wrapper">
+<!--                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 b-min-height">-->
+<!--                    <div class="b-title text-center">-->
+<!--                        <h1 class="user_title">Welcome Friend</h1>-->
+<!--                        <p class="user_subTitle">To keep Connected with us please </br> login with your personal info.</p>-->
+<!--                        <button type="button" class="swift sign_in">Sign In</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">-->
+                    <div class="b-form text-center">
+                        <div class="b-form-title">
+                            <h1 class="form_title">Create Account</h1>
+                        </div>
+                        <h6>Already Have An Account? <a href="/login">Login</a></h6>
+                        <br>
+                        <form method= POST action="" class="signup">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <div class="form-group">
+                                <span class="b-forgot">Forgot your password?</span>
+                            </div>
+
+                            <button class="button" type="submit">Sign Up</button>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
 
 
+            </div>
+        </div>
+    </div>
+</div>
+
+</section>
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--    $('.swift').click(function(){-->
+<!--        var signButton = $(this).html();-->
+<!--        console.log(signButton);-->
+<!--        debugger;-->
+<!--        if(signButton == 'Sign In'){-->
+<!--            $('.sign_up').html('Sign In'); // sign up button text change-->
+<!--            $('.sign_in').html('Sign Up'); // sign in button text change-->
+<!--            $('.swift_right').show(); // second logo show-->
+<!--            $('.b-forgot').show(); // forgot option show-->
+<!--            $('.form_title').html('Sign in to Guide'); // form title text change-->
+<!--            $('.b-subtext').html('or use your email account'); // form sub title text change-->
+<!--            $('.user_title').html('Hello, Friend'); // user title text change-->
+<!--            $('.user_subTitle').html('Enter your personal details </br> and start journey with us.'); // user sub title text change-->
+<!--            $('.b-title').css('margin-top','100px'); // user section add margin top in css-->
+<!--            $('.swift_left').hide(); // default logo hide-->
+<!--            $('.username').hide(); // form user field hide-->
+<!--            $('.b-wrapper').addClass('swift_element'); // add reverse-->
+<!--        }else{-->
+<!--            $('.sign_up').html('Sign Up'); // sign up button text change-->
+<!--            $('.sign_in').html('Sign In'); // sign in button text change-->
+<!--            $('.swift_right').hide(); // second logo hide-->
+<!--            $('.b-forgot').hide(); // forgot option hide-->
+<!--            $('.form_title').html('Create Account');-->
+<!--            $('.b-subtext').html('or use your email for registration');-->
+<!--            $('.user_title').html('Welcome Friend');-->
+<!--            $('.user_subTitle').html('To keep Connected with us please </br> login with your personal info.');-->
+<!--            $('.b-title').css('margin-top','0px');-->
+<!--            $('.swift_left').show();-->
+<!--            $('.username').show();-->
+<!--            $('.b-wrapper').removeClass('swift_element');-->
+<!--        }-->
+
+<!--    })-->
+<!--})-->
+
+
+<!--</script>-->
 {% endblock %}

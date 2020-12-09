@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ben_testing11" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:bentesting11" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="">
+    <list default="true" id="2a54f4b9-20f9-4815-86bc-98a61f307561" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/templates/map/maps-shelters.html" beforeDir="false" afterPath="$PROJECT_DIR$/map/templates/map/maps-shelters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/map/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/map/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/swiper.html" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,15 +43,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sean_playdatetest" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,7 +62,7 @@
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="gcivil-nyu-org" />
     <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="match-a-pet" />
   </component>
-  <component name="JupyterTrust" id="2241c1f1-1ae0-4220-92fd-37eeda3f0afd" />
+  <component name="JupyterTrust" id="effb5b81-14f4-40f9-951e-00785deb3c05" />
   <component name="ProjectId" id="1ikZ633aHwWWnp8dc45Y5zA7Lvq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/playdate/templates/playdate" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/studylab/studylab" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -65,19 +93,7 @@
       <recent name="$PROJECT_DIR$/map/templates/map" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.helpers">
     <configuration name="helpers" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="match-a-pet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,18 +148,32 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9665eb86-71e6-4d7e-b972-2b123e499402" name="Default Changelist" comment="" />
+      <changelist id="2a54f4b9-20f9-4815-86bc-98a61f307561" name="Default Changelist" comment="" />
       <created>1602453371459</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602453371459</updated>
       <workItem from="1605239186221" duration="25546000" />
       <workItem from="1605671527701" duration="5194000" />
+      <workItem from="1606531404640" duration="3336000" />
+      <workItem from="1606538704583" duration="534000" />
+      <workItem from="1606696717352" duration="2859000" />
+      <workItem from="1606944928574" duration="1053000" />
+      <workItem from="1607058992197" duration="36000" />
+      <workItem from="1607059054815" duration="476000" />
+      <workItem from="1607059829137" duration="4497000" />
+      <workItem from="1607136829111" duration="271000" />
+      <workItem from="1607283752009" duration="809000" />
+      <workItem from="1607317429660" duration="1461000" />
+      <workItem from="1607341160971" duration="299000" />
+      <workItem from="1607390404357" duration="3245000" />
+      <workItem from="1607439307146" duration="4506000" />
     </task>
     <task id="LOCAL-00001" summary="maps testing work">
       <created>1605303278367</created>
@@ -201,24 +231,100 @@
       <option name="project" value="LOCAL" />
       <updated>1605675059420</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changed navstyle">
+      <created>1607356729694</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607356729694</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changed navstyle">
+      <created>1607357187668</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607357187668</updated>
+    </task>
+    <task id="LOCAL-00011" summary="removed pets1">
+      <created>1607357313981</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607357313981</updated>
+    </task>
+    <task id="LOCAL-00012" summary="changed tests">
+      <created>1607358375494</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607358375494</updated>
+    </task>
+    <task id="LOCAL-00013" summary="black and flake8">
+      <created>1607359006502</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607359006502</updated>
+    </task>
+    <task id="LOCAL-00014" summary="changed landing page">
+      <created>1607369631792</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607369631792</updated>
+    </task>
+    <task id="LOCAL-00015" summary="flake8 and black">
+      <created>1607370244004</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607370244004</updated>
+    </task>
+    <task id="LOCAL-00016" summary="changed pages and consolidated playdate user profile">
+      <created>1607379137785</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607379137785</updated>
+    </task>
+    <task id="LOCAL-00017" summary="changed pages and consolidated playdate user profile">
+      <created>1607379281725</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1607379281725</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fixed profile messages">
+      <created>1607379783744</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1607379783744</updated>
+    </task>
+    <task id="LOCAL-00019" summary="pet will now transfer to client user when the shelter marks that the adoption is complete">
+      <created>1607393694981</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1607393694981</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="maps testing work" />
@@ -229,14 +335,29 @@
     <MESSAGE value="playdate to upload2" />
     <MESSAGE value="playdate debug" />
     <MESSAGE value="playdate debug2" />
-    <option name="LAST_COMMIT_MESSAGE" value="playdate debug2" />
+    <MESSAGE value="changed navstyle" />
+    <MESSAGE value="removed pets1" />
+    <MESSAGE value="changed tests" />
+    <MESSAGE value="black and flake8" />
+    <MESSAGE value="changed landing page" />
+    <MESSAGE value="flake8 and black" />
+    <MESSAGE value="changed pages and consolidated playdate user profile" />
+    <MESSAGE value="fixed profile messages" />
+    <MESSAGE value="pet will now transfer to client user when the shelter marks that the adoption is complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="pet will now transfer to client user when the shelter marks that the adoption is complete" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser" />
     <state x="1034" y="502" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1400@0.0.2560.1400" />
+    <state x="893" y="268" key="CommitChangelistDialog2" />
+    <state x="893" y="268" key="CommitChangelistDialog2/0.0.2560.1400@0.0.2560.1400" />
+    <state x="1060" y="455" key="FileChooserDialogImpl" />
+    <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" />
     <state width="202" height="479" key="Git.Branch.Popup" />
     <state width="202" height="479" key="Git.Branch.Popup/1920.1080/3360.2100" />
     <state width="202" height="479" key="Git.Branch.Popup@1920.1080" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2" />
+    <state x="872" y="420" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1" />
     <state x="135" y="0" width="1905" height="958" key="dock-window-1/0.0.2560.1400@0.0.2560.1400" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" />

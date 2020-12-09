@@ -2,6 +2,27 @@
 
 {% block body %}
 
+<style>
+
+    .paginationcustom {
+        display: flex;
+        padding-left: 0px;
+        list-style: none;
+        border-radius: 0.25rem;
+        justify-content: center;
+    }
+</style>
+<section class="hero-wrap hero-wrap-2">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate pb-5 text-center">
+<!--					<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Pets<i class="fa fa-chevron-right"></i></span></p>-->
+					<h1 class="mb-0 bread">Shelters & Users</h1>
+				</div>
+			</div>
+		</div>
+	</section>
 <section class="ftco-section bg-light">
 
     <div class="container">
@@ -18,10 +39,29 @@
             </form>
           </div>
         </div>
+
+    <!-- <div class="container"> -->
+        <nav aria-label="Page navigation">
+            <ul class="paginationcustom">
+                <li class="page-item">
+                    {% if page_obj.has_previous %}
+                        <a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a>
+                    {% endif %}
+                </li>
+                <li class="page-item">
+                    <a class="page-link">Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
+                </li>
+                <li class="page-item">
+                    {% if page_obj.has_next %}
+                    <a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
   
   <div class="row">
-    {% if filter.qs %}
-    {% for user in filter.qs %}
+    {% if page_obj %}
+    {% for user in page_obj %}
         <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
             <div class="staff">
                 <a href=" /../profile/{{ user.username }}">
@@ -48,12 +88,6 @@
                         {% elif user.is_clientuser %}
                             <p>User:<a href=" /../profile/{{ user.username }}">{{user.username}}</a></p>
                             <img src="../../static/accounts/images/animal_images/user.png" style="height: 50px; width: 50px"/>
-                            <ul class="ftco-social text-center">
-                                <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
-    
-                                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
                         {% endif %}
                         
                     </div>
@@ -61,25 +95,31 @@
             </div>
         </div>
         {% endfor %}
+        {% endif %}
     </div>
   
-    <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-      {% if is_paginated %}
-      <div class="project-wrap">
-          <div class="block-27">
-              <ul class="d-flex justify-content-between">
-                  {% if page_obj.has_previous %}
-                  <li><a href="/pets/view_pets?page={{ page_obj.previous_page_number }}">&lt;</a></li>
-                  {% endif %}
-                  <li class="advisor">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
-                  {% if page_obj.has_next %}
-                  <li><a href="/pets/view_pets?page={{ page_obj.next_page_number }}">&gt;</a></li>
-                  {% endif %}
-                  {% endif %}
-              </ul>
-          </div>
-      </div>
-      {% endif %}
+    
+
+      <nav aria-label="Page navigation">
+        <ul class="paginationcustom">
+            <li class="page-item">
+                {% if page_obj.has_previous %}
+                    <a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a>
+                {% endif %}
+            </li>
+            <li class="page-item">
+                <a class="page-link">Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</a>
+            </li>
+            <li class="page-item">
+                {% if page_obj.has_next %}
+                <a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+
+
+
   </div>
   </section>
 

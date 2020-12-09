@@ -6,10 +6,11 @@ from .models import ShelterRegisterData, Pet, UserRegisterData, User
 class ShelterRegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["email"].label = "Shelter Email"
-        self.fields["username"].label = "Shelter Name"
-        self.fields["first_name"].label = "Shelter Staff First Name"
-        self.fields["last_name"].label = "Shelter Staff Last Name"
+        self.fields["user_type"].label = "Are You A Shelter Or A User?"
+        self.fields["email"].label = "Email Address"
+        self.fields["username"].label = "Name of Shelter or Username for User"
+        self.fields["first_name"].label = "First Name"
+        self.fields["last_name"].label = "Last Name"
 
     l_choices = (("ny", "New York"), ("ca", "California"))
     ny_choices = (
@@ -19,6 +20,12 @@ class ShelterRegistrationForm(UserCreationForm):
         ("Staten Island", "Staten Island"),
         ("Bronx", "Bronx"),
     )
+    user_choices = (
+        ("Shelter", "Shelter"),
+        ("User", "User"),
+    )
+
+    user_type = forms.ChoiceField(choices=user_choices)
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
@@ -30,6 +37,7 @@ class ShelterRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = [
+            "user_type",
             "username",
             "email",
             "first_name",
@@ -42,56 +50,14 @@ class ShelterRegistrationForm(UserCreationForm):
             "password2",
         ]
         help_texts = {
-            "username": ("Shelter name can contain Letters, digits and @/./+/-/_ only.")
-        }
-
-
-class UserRegistrationForm(UserCreationForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields["email"].label = "User Email"
-        self.fields["username"].label = "User Name"
-        self.fields["first_name"].label = "User Staff First Name"
-        self.fields["last_name"].label = "User Staff Last Name"
-
-    l_choices = (("ny", "New York"), ("ca", "California"))
-    ny_choices = (
-        ("Manhattan", "Manhattan"),
-        ("Brooklyn", "Brooklyn"),
-        ("Queens", "Queens"),
-        ("Staten Island", "Staten Island"),
-        ("Bronx", "Bronx"),
-    )
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    city = forms.ChoiceField(choices=ny_choices)
-    state = forms.ChoiceField(choices=l_choices)
-    zip_code = forms.CharField(required=True)
-
-    class Meta:
-        model = User
-        fields = [
-            "username",
-            "email",
-            "first_name",
-            "last_name",
-            "address",
-            "city",
-            "state",
-            "zip_code",
-            "password1",
-            "password2",
-        ]
-        help_texts = {
-            "username": ("Shelter name can contain Letters, digits and @/./+/-/_ only.")
+            "username": ("Input can contain Letters, digits and @/./+/-/_ only.")
         }
 
 
 class ShelterUserUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["email"].label = "Shelter Email"
+        self.fields["about"].label = "Your Bio"
         self.fields["username"].label = "Shelter Name"
         self.fields["first_name"].label = "Shelter Staff First Name"
         self.fields["last_name"].label = "Shelter Staff Last Name"
@@ -104,18 +70,19 @@ class ShelterUserUpdateForm(forms.ModelForm):
         ("Staten Island", "Staten Island"),
         ("Bronx", "Bronx"),
     )
-    email = forms.EmailField(required=True)
+
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     city = forms.ChoiceField(choices=ny_choices)
     state = forms.ChoiceField(choices=l_choices)
     zip_code = forms.CharField(required=True)
+    about = forms.CharField(required=False)
 
     class Meta:
         model = User
         fields = [
+            "about",
             "username",
-            "email",
             "first_name",
             "last_name",
             "address",
@@ -138,10 +105,10 @@ class ShelterUpdateForm(forms.ModelForm):
 class ClientUserUpdateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["email"].label = "Shelter Email"
-        self.fields["username"].label = "Shelter Name"
-        self.fields["first_name"].label = "Shelter Staff First Name"
-        self.fields["last_name"].label = "Shelter Staff Last Name"
+        self.fields["about"].label = "Your Bio"
+        self.fields["username"].label = "Username"
+        self.fields["first_name"].label = "First Name"
+        self.fields["last_name"].label = "Last Name"
 
     l_choices = (("ny", "New York"), ("ca", "California"))
     ny_choices = (
@@ -151,18 +118,19 @@ class ClientUserUpdateForm(forms.ModelForm):
         ("Staten Island", "Staten Island"),
         ("Bronx", "Bronx"),
     )
-    email = forms.EmailField(required=True)
+
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
     city = forms.ChoiceField(choices=ny_choices)
     state = forms.ChoiceField(choices=l_choices)
     zip_code = forms.CharField(required=True)
+    about = forms.CharField(required=False)
 
     class Meta:
         model = User
         fields = [
+            "about",
             "username",
-            "email",
             "first_name",
             "last_name",
             "address",

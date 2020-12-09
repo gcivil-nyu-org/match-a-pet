@@ -4,7 +4,7 @@ from accounts.forms import (
     ShelterUserUpdateForm,
     ShelterUpdateForm,
     PetForm,
-    UserRegistrationForm,
+    # UserRegistrationForm,
     ClientUserUpdateForm,
     ClientUpdateForm,
 )
@@ -15,6 +15,7 @@ class DefaultTestFroms(TestCase):
     def test_ShelterRegistrationForm_valid(self):
         form = ShelterRegistrationForm(
             data={
+                "user_type": "Shelter",
                 "username": "peter7",
                 "email": "peter@matchapet.com",
                 "first_name": "Peter",
@@ -34,7 +35,7 @@ class DefaultTestFroms(TestCase):
         form = ShelterRegistrationForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 10)
+        self.assertEquals(len(form.errors), 11)
 
     def test_ShelterRegistrationForm_invalid_data(self):
         form = ShelterRegistrationForm(
@@ -44,7 +45,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 9)
+        self.assertEquals(len(form.errors), 10)
 
     def test_ShelterRegistrationForm_invalid_data1(self):
         form = ShelterRegistrationForm(
@@ -60,7 +61,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 3)
+        self.assertEquals(len(form.errors), 4)
 
     def test_ShelterRegistrationForm_invalid_data2(self):
         form = ShelterRegistrationForm(
@@ -75,7 +76,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 4)
+        self.assertEquals(len(form.errors), 5)
 
     def test_ShelterRegistrationForm_invalid_data3(self):
         form = ShelterRegistrationForm(
@@ -89,7 +90,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 5)
+        self.assertEquals(len(form.errors), 6)
 
     def test_ShelterRegistrationForm_invalid_data4(self):
         form = ShelterRegistrationForm(
@@ -102,7 +103,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 6)
+        self.assertEquals(len(form.errors), 7)
 
     def test_ShelterRegistrationForm_invalid_data5(self):
         form = ShelterRegistrationForm(
@@ -114,7 +115,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
+        self.assertEquals(len(form.errors), 8)
 
     def test_ShelterRegistrationForm_invalid_data6(self):
         form = ShelterRegistrationForm(
@@ -125,7 +126,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
+        self.assertEquals(len(form.errors), 9)
 
     def test_ShelterRegistrationForm_invalid_data7(self):
         form = ShelterRegistrationForm(
@@ -135,7 +136,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 9)
+        self.assertEquals(len(form.errors), 10)
 
     # ** Testing ShelterUserUpdateForm
     def test_ShelterUserUpdateForm_valid(self):
@@ -158,7 +159,7 @@ class DefaultTestFroms(TestCase):
         form = ShelterUserUpdateForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
+        self.assertEquals(len(form.errors), 7)
 
     def test_ShelterUserUpdateForm_invalid_data(self):
         form = ShelterUserUpdateForm(
@@ -179,7 +180,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
+        self.assertEquals(len(form.errors), 6)
 
     def test_ShelterUserUpdateForm_valid2(self):
         form = ShelterUserUpdateForm(
@@ -226,131 +227,131 @@ class DefaultTestFroms(TestCase):
 
         self.assertTrue(form.is_valid())
 
-    # ** Testing UserRegistrationForm
-    def test_UserRegistrationForm_valid(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-                "address": "5th Ave",
-                "city": "Manhattan",
-                "state": "ny",
-                "zip_code": "12189",
-                "password1": "test123abc",
-                "password2": "test123abc",
-            }
-        )
-
-        self.assertTrue(form.is_valid())
-
-    def test_UserRegistrationForm_no_data(self):
-        form = UserRegistrationForm(data={})
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 10)
-
-    def test_UserRegistrationForm_invalid_data(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 9)
-
-    def test_SUserRegistrationForm_invalid_data1(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-                "city": "Manhattan",
-                "state": "ny",
-                "password1": "test123abc",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 3)
-
-    def test_UserRegistrationForm_invalid_data2(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-                "city": "Manhattan",
-                "state": "ny",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 4)
-
-    def test_UserRegistrationForm_invalid_data3(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-                "city": "Manhattan",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 5)
-
-    def test_UserRegistrationForm_invalid_data4(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-                "last_name": "Voltz",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 6)
-
-    def test_UserRegistrationForm_invalid_data5(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-                "first_name": "Peter",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
-
-    def test_UserRegistrationForm_invalid_data6(self):
-        form = UserRegistrationForm(
-            data={
-                "username": "peter7",
-                "email": "peter@matchapet.com",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
-
-    def test_UserRegistrationForm_invalid_data7(self):
-        form = UserRegistrationForm(
-            data={
-                "email": "peter@matchapet.com",
-            }
-        )
-
-        self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 9)
+    # # ** Testing UserRegistrationForm
+    # def test_UserRegistrationForm_valid(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #             "last_name": "Voltz",
+    #             "address": "5th Ave",
+    #             "city": "Manhattan",
+    #             "state": "ny",
+    #             "zip_code": "12189",
+    #             "password1": "test123abc",
+    #             "password2": "test123abc",
+    #         }
+    #     )
+    #
+    #     self.assertTrue(form.is_valid())
+    #
+    # def test_UserRegistrationForm_no_data(self):
+    #     form = UserRegistrationForm(data={})
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 10)
+    #
+    # def test_UserRegistrationForm_invalid_data(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 9)
+    #
+    # def test_SUserRegistrationForm_invalid_data1(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #             "last_name": "Voltz",
+    #             "city": "Manhattan",
+    #             "state": "ny",
+    #             "password1": "test123abc",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 3)
+    #
+    # def test_UserRegistrationForm_invalid_data2(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #             "last_name": "Voltz",
+    #             "city": "Manhattan",
+    #             "state": "ny",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 4)
+    #
+    # def test_UserRegistrationForm_invalid_data3(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #             "last_name": "Voltz",
+    #             "city": "Manhattan",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 5)
+    #
+    # def test_UserRegistrationForm_invalid_data4(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #             "last_name": "Voltz",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 6)
+    #
+    # def test_UserRegistrationForm_invalid_data5(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #             "first_name": "Peter",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 7)
+    #
+    # def test_UserRegistrationForm_invalid_data6(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "username": "peter7",
+    #             "email": "peter@matchapet.com",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 8)
+    #
+    # def test_UserRegistrationForm_invalid_data7(self):
+    #     form = UserRegistrationForm(
+    #         data={
+    #             "email": "peter@matchapet.com",
+    #         }
+    #     )
+    #
+    #     self.assertFalse(form.is_valid())
+    #     self.assertEquals(len(form.errors), 9)
 
     # ** Testing ClientUserUpdateForm
     def test_ClientUserUpdateForm_valid(self):
@@ -373,7 +374,7 @@ class DefaultTestFroms(TestCase):
         form = ClientUserUpdateForm(data={})
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 8)
+        self.assertEquals(len(form.errors), 7)
 
     def test_ClientUserUpdateForm_invalid_data(self):
         form = ClientUserUpdateForm(
@@ -394,7 +395,7 @@ class DefaultTestFroms(TestCase):
         )
 
         self.assertFalse(form.is_valid())
-        self.assertEquals(len(form.errors), 7)
+        self.assertEquals(len(form.errors), 6)
 
     def test_ClientUserUpdateForm_valid2(self):
         form = ClientUserUpdateForm(

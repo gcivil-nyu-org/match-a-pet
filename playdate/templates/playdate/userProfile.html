@@ -1,0 +1,101 @@
+{% extends 'accounts/base.html' %}
+
+{% block body %}
+
+<!--<style>-->
+<!--    body{-->
+<!--    background-image: url("../../static/accounts/images/animal_images/paw.png");-->
+<!--    }-->
+<!--</style>-->
+
+
+ <section class="hero-wrap hero-wrap-2">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="/">Search <i class="fa fa-chevron-right"></i></a></span> <span>User Details <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">{{user1.username}} Details</h1>
+     </div>
+   </div>
+ </div>
+</section>
+
+<section class="ftco-section bg-light">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-4 ftco-animate d-flex align-items-center align-items-stretch">
+    <div class="staff-2 w-100">
+     <div class="img-wrap d-flex align-items-stretch">
+            <div class="img align-self-stretch d-flex align-items-end" style="background-image: url('{{user1.uprofile.user_profile_image.url}}');">
+       <div class="text mb-4 text-md-center">
+        <h3>{{user1.username}}</h3>
+        <div class="faded">
+            <br>
+            <h4><a href="{% url 'accounts:newconversation' user1.username %}">SCHEDULE A PLAYDATE!
+            <i class="fas fa-paper-plane"></i></a></h4>
+            <br>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+<div class="col-md-8 d-flex align-items-center">
+  <div class="staff-detail w-100 pl-md-5">
+   <h3>About</h3>
+   <p>Default User Profile
+   <h3>City:</h3><p>{{user1.city}}</p>
+   <h3>State: </h3><p>{{user1.state}}</p>
+   <h3>Contact email: </h3><p>{{user1.email}}</p>
+ </div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ftco-section bg-light ftco-no-pt">
+ <div class="container">
+  <div class="row pb-4">
+    <div class="col-md-12 heading-section ftco-animate">
+      <h2 class="mb-4">{{user1.username}}'s Pets</h2>
+    </div>
+  </div>
+     <div class="row">
+        {% for pets in pet_list %}
+        <div class="col-md-6 col-lg-3 ftco-animate d-flex align-items-stretch">
+                <div class="staff">
+                    <div class="img-wrap d-flex align-items-stretch">
+
+                        <div class="img align-self-stretch" style="background-image: url({{pets.pet_profile_image1.url}}); height: 250px; width: 250px"></div>
+                    </div></a>
+                    <div class="text pt-3">
+                        <h3>{{pets.pet_name}}</a></h3>
+                        <span class="position mb-2">{{pets.pet_breed}}</span>
+                        <div class="faded">
+                            <p>Age: {{pets.pet_age}}</p>
+                            <p>Sex: {{pets.pet_gender}}</p>
+                            <p>Playdate Day: {{pets.pet_playdate_day1}}</p>
+                            <p>Playdate Time: {{pets.pet_playdate_time1}}</p>
+                            <ul class="ftco-social text-center">
+                        <!-- <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li> -->
+
+                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+     </div>
+
+ </div>
+</section>
+
+
+{% endblock %}
+

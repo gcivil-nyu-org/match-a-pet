@@ -1,14 +1,16 @@
 from django.urls import path
 from . import views
-from .views import PetListView, SearchShelterAndUserView
+from .views import PetListView, SearchShelterAndUserView, MatchUserView
 from django.contrib.auth import views as auth_views
 from .views import VerificationView
 
 app_name = "accounts"
 urlpatterns = [
+    # path("search/", views.search, name="search"),
     path("", views.home, name="accounts-home"),
-    path("shelter/register/", views.registerShelter, name="register-shelter"),
-    path("user/register/", views.registerUser, name="register-user"),
+    # path("shelter/register/", views.registerShelter, name="register-shelter"),
+    # path("user/register/", views.registerUser, name="register-user"),
+    path("register/", views.register, name="register"),
     path(
         "login/",
         auth_views.LoginView.as_view(template_name="accounts/login.html"),
@@ -33,4 +35,8 @@ urlpatterns = [
     path("inbox/<username>", views.Directs, name="directs"),
     path("send/", views.SendDirect, name="send_direct"),
     path("send/new/<username>/", views.NewConversation, name="newconversation"),
+    path("user/swiper/", views.MatchUserView.as_view(), name="swiper"),
+    path("adoptpending/<int:id>/", views.adopt_pending, name="adopt_pending"),
+    path("adoptcancel/<int:id>/", views.adopt_cancel, name="adopt_cancel"),
+    path("adoptcomplete/<int:id>/", views.adopt_complete, name="adopt_complete"),
 ]

@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from PIL import Image
-from accounts.models import User, UserRegisterData
+from accounts.models import UserRegisterData
 
 
 # ClientUserPet has fields id, pet_age, pet_breed, pet_color, pet_gender, pet_image_url,
@@ -16,6 +15,9 @@ class ClientUserPet(models.Model):
     pet_age = models.CharField(max_length=10)
     pet_color = models.CharField(max_length=50)
     pet_gender = models.CharField(max_length=50)
+    pet_spayneuter = models.CharField(max_length=50, default="Yes")
+    pet_playdate_day1 = models.CharField(max_length=50, default="Friday")
+    pet_playdate_time1 = models.CharField(max_length=50, default="Night")
     pet_profile_image1 = models.ImageField(
         default="default.jpg", upload_to="pet_profile_pics", blank=True
     )

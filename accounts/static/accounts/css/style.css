@@ -189,7 +189,8 @@ label {
   margin-bottom: 0.5rem; }
 
 button {
-  border-radius: 0; }
+
+}
 
 button:focus {
   outline: 1px dotted;
@@ -493,6 +494,16 @@ pre {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px; }
+
+.row1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  background-color: white;}
 
 .no-gutters {
   margin-right: 0;
@@ -2297,7 +2308,7 @@ fieldset:disabled a.btn {
 
 .btn-info {
   color: #fff;
-  background-color: #17a2b8;
+  background-color: #174d9e;
   border-color: #17a2b8; }
   .btn-info:hover {
     color: #fff;
@@ -5289,7 +5300,8 @@ a.close.disabled {
   transition: -webkit-transform 0.6s ease-in-out;
   -o-transition: transform 0.6s ease-in-out;
   transition: transform 0.6s ease-in-out;
-  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out; }
+  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+background-color: white;}
   @media (prefers-reduced-motion: reduce) {
     .carousel-item {
       -webkit-transition: none;
@@ -5345,8 +5357,8 @@ a.close.disabled {
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  bottom: 50%;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5357,8 +5369,8 @@ a.close.disabled {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 15%;
-  color: #fff;
+  width: 40%;
+  color: #d42561;
   text-align: center;
   opacity: 0.5;
   -webkit-transition: opacity 0.15s ease;
@@ -5554,7 +5566,7 @@ button.bg-success:focus {
   background-color: #1e7e34 !important; }
 
 .bg-info {
-  background-color: #17a2b8 !important; }
+  background-color: #d1eaee !important; }
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
@@ -8337,7 +8349,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: 400;
-  color: #999999; }
+  color: #4f9ca9; }
   body.menu-show {
     overflow: hidden;
     position: fixed;
@@ -8348,7 +8360,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #4986fc; }
+  color: #758ec7; }
   a:hover, a:focus {
     text-decoration: none;
     color: #4986fc;
@@ -8603,7 +8615,7 @@ h1, h2, h3, h4, h5,
     font-weight: 700;
     text-transform: uppercase; }
   .slider-text h1 {
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 50px;
     color: #1c2a38;
     line-height: 1.2;
@@ -8742,6 +8754,16 @@ h1, h2, h3, h4, h5,
 .bg-primary {
   background: #4986fc; }
 
+.btn-adoption{
+  letter-spacing: 0.4px;
+    padding: 15px 15px;
+    border-radius: 36px;
+    border: 1.5px solid #fff;
+    background: #f7c5c3;
+    color: #845431;
+    margin-top: 25px;
+}
+
 .btn {
   cursor: pointer;
   -webkit-border-radius: 4px;
@@ -8754,8 +8776,8 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #e38fac !important;
-    color: #fff !important;
+    background: white !important;
+    color: #d42561 !important;
     margin-bottom: 10px;
   }
     .btn.btn-primary:hover {
@@ -9283,10 +9305,13 @@ textarea.form-control {
       background: #4986fc; }
 
 .ftco-footer {
+  background: #ebf8fd;
   font-size: 16px;
   padding: 7em 0;
   z-index: 0;
- }
+
+}
+
   .ftco-footer .ftco-footer-logo {
     text-transform: uppercase;
     letter-spacing: .1em; }
@@ -9329,7 +9354,7 @@ textarea.form-control {
     color: #fff;
     border-radius: 50%;
     position: relative;
-    background: #24d2c8; }
+    background: #89c1af; }
     .ftco-footer-social li a span {
       position: absolute;
       font-size: 18px;
@@ -9559,7 +9584,8 @@ textarea.form-control {
   opacity: 0; }
 
 #section-counter {
-  position: relative;
+  margin-top: 400px;
+  position: absolute;
   z-index: 0;
   background-attachment: fixed; }
   #section-counter .overlay {
@@ -9571,7 +9597,7 @@ textarea.form-control {
     content: '';
     z-index: -1;
     opacity: .8;
-    background: #f9faff;
+    background: #fff;
 
  }
 
@@ -9678,7 +9704,7 @@ textarea.form-control {
     width: 40px;
     font-size: 18px;
     padding-top: 2px;
-    color: #24d2c8 !important; }
+    color: #89c1af !important; }
 
 .block-27 ul {
   padding: 0;
